@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: sans-serif; }
+
+  .tabs {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    border: 1px solid #aaa;
+    background: #ddd;
+  }
+
+  .tab.active {
+    background: #fff;
+    border-bottom: none;
+  }
+
+  .content {
+    border: 1px solid #aaa;
+    padding: 20px;
+  }
+
+  .page {
+    display: none;
+  }
+
+  .page.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <div class="tab active" onclick="showPage(0)">Page1</div>
+  <div class="tab" onclick="showPage(1)">Page2</div>
+</div>
+
+<div class="content">
+  <div class="page active">これはPage1の内容</div>
+  <div class="page">これはPage2の内容</div>
+</div>
+
+<script>
+function showPage(index) {
+  const tabs = document.querySelectorAll(".tab");
+  const pages = document.querySelectorAll(".page");
+
+  tabs.forEach(t => t.classList.remove("active"));
+  pages.forEach(p => p.classList.remove("active"));
+
+  tabs[index].classList.add("active");
+  pages[index].classList.add("active");
+}
+</script>
+
+</body>
+</html>
